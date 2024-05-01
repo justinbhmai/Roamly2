@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4b-n6-Kse">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -8,44 +8,169 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Roamly-->
-        <scene sceneID="imF-Hw-Hz4">
+        <!--Tab Bar Controller-->
+        <scene sceneID="zLj-0E-PcV">
             <objects>
-                <viewController id="Ptk-ds-waR" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j6c-EI-3CM">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="bIs-qm-Ygd"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Roamly" id="Rql-gP-kjE"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="usw-aG-k4X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1968.7022900763359" y="3.5211267605633805"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="yhz-Hg-HyC">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L9x-px-vD4" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="O4b-n6-Kse" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QP3-OT-r1x">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="DZy-1b-b2a">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <color key="barTintColor" systemColor="systemOrangeColor"/>
+                        <tabBarAppearance key="standardAppearance"/>
+                        <tabBarAppearance key="scrollEdgeAppearance"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="3tN-8y-9p0" kind="relationship" relationship="viewControllers" id="974-Ax-0o1"/>
+                        <segue destination="oPl-e6-kYi" kind="relationship" relationship="viewControllers" id="GUQ-r3-tgP"/>
+                        <segue destination="cNo-vF-Acc" kind="relationship" relationship="viewControllers" id="JRB-8T-BfX"/>
+                        <segue destination="8FW-Tp-5ty" kind="relationship" relationship="viewControllers" id="mVi-hX-vIC"/>
+                        <segue destination="X2A-Wd-2Vd" kind="relationship" relationship="viewControllers" id="CBQ-C0-3Uk"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCh-f1-lPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2895.419847328244" y="3.5211267605633805"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="fWk-JW-weH">
+            <objects>
+                <viewController keyboardType="off" id="Bm3-Th-4hQ" customClass="ViewController" customModule="Roamly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f3O-24-aVD">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Xrn-PW-ch5"/>
+                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Home" id="nt1-Lp-gjE"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8md-x1-cpo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2631" y="736"/>
+        </scene>
+        <!--Trip-->
+        <scene sceneID="lw7-C9-stM">
+            <objects>
+                <viewController title="Trip" id="oPl-e6-kYi" customClass="TripViewController" customModule="Roamly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qcy-vo-2nQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="TKa-nc-2Kx"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Trip" image="map" catalog="system" id="v2q-Xl-PHi"/>
+                    <navigationItem key="navigationItem" title="Trip" id="gFw-hY-fZK"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dFa-UZ-tDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3524.4274809160306" y="735.91549295774655"/>
+        </scene>
+        <!--Document-->
+        <scene sceneID="d3Z-TN-UZt">
+            <objects>
+                <viewController title="Document" id="cNo-vF-Acc" customClass="DocumentViewController" customModule="Roamly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MJ6-Ra-UbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5Wj-es-aDd"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Document" image="doc.text" catalog="system" id="kKb-Ii-7nR"/>
+                    <navigationItem key="navigationItem" title="Document" id="4x5-Nb-vBO"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xRW-rn-YkH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4217.5572519083971" y="735.91549295774655"/>
+        </scene>
+        <!--Expenses-->
+        <scene sceneID="ozd-St-n0w">
+            <objects>
+                <viewController title="Expenses" id="8FW-Tp-5ty" customClass="ExpensesViewController" customModule="Roamly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3mM-hs-LwU">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="F28-Pa-S9E"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Expenses" image="dollarsign.circle" catalog="system" id="VVH-cE-GbB"/>
+                    <navigationItem key="navigationItem" title="Expenses" id="GPw-uz-IhS"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IT1-Lb-t1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4973.2824427480919" y="735.91549295774655"/>
+        </scene>
+        <!--Socials-->
+        <scene sceneID="pIO-X5-HAg">
+            <objects>
+                <viewController title="Socials" id="X2A-Wd-2Vd" customClass="SocialsViewController" customModule="Roamly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yTE-19-f64">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="NSh-1f-QiM"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Socials" image="person.3" catalog="system" id="Eig-v5-HtJ"/>
+                    <navigationItem key="navigationItem" title="Socials" id="XN1-Ve-s8W"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ini-Kh-Q0B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5826.7175572519081" y="735.91549295774655"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="VkZ-xq-bTp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3tN-8y-9p0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="3ZM-JQ-oWx"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JSA-ti-LlW">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ptk-ds-waR" kind="relationship" relationship="rootViewController" id="IVr-hF-aPX"/>
+                        <segue destination="Bm3-Th-4hQ" kind="relationship" relationship="rootViewController" id="HIP-Zk-5CJ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Wi-IL-DWR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IT5-Gv-KZL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041.9847328244275" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1849.6183206106869" y="735.91549295774655"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <image name="doc.text" catalog="system" width="115" height="128"/>
+        <image name="dollarsign.circle" catalog="system" width="128" height="123"/>
+        <image name="house" catalog="system" width="128" height="104"/>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

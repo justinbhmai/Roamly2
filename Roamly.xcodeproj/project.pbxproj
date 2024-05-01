@@ -13,6 +13,10 @@
 		B46057572BE2A98E00A777FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B46057552BE2A98E00A777FD /* Main.storyboard */; };
 		B46057592BE2A98F00A777FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B46057582BE2A98F00A777FD /* Assets.xcassets */; };
 		B460575C2BE2A98F00A777FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B460575A2BE2A98F00A777FD /* LaunchScreen.storyboard */; };
+		B46057642BE2B81400A777FD /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057632BE2B81400A777FD /* TripViewController.swift */; };
+		B46057662BE2B82400A777FD /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057652BE2B82400A777FD /* DocumentViewController.swift */; };
+		B46057682BE2B82E00A777FD /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057672BE2B82E00A777FD /* ExpensesViewController.swift */; };
+		B460576A2BE2B83900A777FD /* SocialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057692BE2B83900A777FD /* SocialsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		B46057582BE2A98F00A777FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B460575B2BE2A98F00A777FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B460575D2BE2A98F00A777FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B46057632BE2B81400A777FD /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		B46057652BE2B82400A777FD /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		B46057672BE2B82E00A777FD /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		B46057692BE2B83900A777FD /* SocialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				B46057582BE2A98F00A777FD /* Assets.xcassets */,
 				B460575A2BE2A98F00A777FD /* LaunchScreen.storyboard */,
 				B460575D2BE2A98F00A777FD /* Info.plist */,
+				B46057632BE2B81400A777FD /* TripViewController.swift */,
+				B46057672BE2B82E00A777FD /* ExpensesViewController.swift */,
+				B46057692BE2B83900A777FD /* SocialsViewController.swift */,
+				B46057652BE2B82400A777FD /* DocumentViewController.swift */,
 			);
 			path = Roamly;
 			sourceTree = "<group>";
@@ -138,9 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B46057662BE2B82400A777FD /* DocumentViewController.swift in Sources */,
 				B46057542BE2A98E00A777FD /* ViewController.swift in Sources */,
+				B46057642BE2B81400A777FD /* TripViewController.swift in Sources */,
 				B46057502BE2A98E00A777FD /* AppDelegate.swift in Sources */,
+				B460576A2BE2B83900A777FD /* SocialsViewController.swift in Sources */,
 				B46057522BE2A98E00A777FD /* SceneDelegate.swift in Sources */,
+				B46057682BE2B82E00A777FD /* ExpensesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
