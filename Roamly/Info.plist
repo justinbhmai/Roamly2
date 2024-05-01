@@ -17,6 +17,10 @@
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
+                    <key>UIFileSharingEnabled</key>
+                    <true/>
+                    <key>UISupportsDocumentBrowser</key>
+                    <true/>
 				</dict>
 			</array>
 		</dict>
