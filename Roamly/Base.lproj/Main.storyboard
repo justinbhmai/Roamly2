@@ -361,18 +361,27 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0qN-An-ezh">
-                                <rect key="frame" x="20" y="224" width="353" height="200"/>
+                                <rect key="frame" x="20" y="236" width="353" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bAh-Wv-p5J">
+                                <rect key="frame" x="20" y="179" width="158" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F28-Pa-S9E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0qN-An-ezh" firstAttribute="top" secondItem="bAh-Wv-p5J" secondAttribute="bottom" constant="20" id="1EN-Tf-0FX"/>
                             <constraint firstItem="ors-hW-eod" firstAttribute="trailing" secondItem="F28-Pa-S9E" secondAttribute="trailing" id="2Y3-9S-k6M"/>
+                            <constraint firstItem="bAh-Wv-p5J" firstAttribute="leading" secondItem="F28-Pa-S9E" secondAttribute="leading" constant="20" id="HJe-aw-oKl"/>
                             <constraint firstItem="ors-hW-eod" firstAttribute="leading" secondItem="F28-Pa-S9E" secondAttribute="leading" constant="10" id="PEv-MN-R3k"/>
                             <constraint firstItem="ors-hW-eod" firstAttribute="leading" secondItem="F28-Pa-S9E" secondAttribute="leading" id="T1B-FT-cdV"/>
                             <constraint firstItem="F28-Pa-S9E" firstAttribute="trailing" secondItem="0qN-An-ezh" secondAttribute="trailing" constant="20" id="Uu6-th-aDN"/>
                             <constraint firstItem="ors-hW-eod" firstAttribute="top" secondItem="F28-Pa-S9E" secondAttribute="top" id="b0E-fB-Fq1"/>
+                            <constraint firstItem="bAh-Wv-p5J" firstAttribute="top" secondItem="ors-hW-eod" secondAttribute="bottom" constant="20" id="fxe-NO-g3t"/>
                             <constraint firstItem="ors-hW-eod" firstAttribute="trailing" secondItem="F28-Pa-S9E" secondAttribute="trailing" constant="10" id="k4I-hL-d3t"/>
                             <constraint firstItem="ors-hW-eod" firstAttribute="top" secondItem="F28-Pa-S9E" secondAttribute="top" id="lMM-90-5n9"/>
                             <constraint firstItem="0qN-An-ezh" firstAttribute="leading" secondItem="F28-Pa-S9E" secondAttribute="leading" constant="20" id="n4j-62-ngu"/>
@@ -391,6 +400,8 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="addExpenseViewControllerButton" destination="891-5S-63S" id="qim-nF-RNp"/>
+                        <outlet property="expenseSearchBar" destination="ors-hW-eod" id="1nP-tw-mOQ"/>
+                        <outlet property="expenseTableView" destination="0qN-An-ezh" id="ret-07-cOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IT1-Lb-t1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
