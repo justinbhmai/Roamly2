@@ -15,6 +15,7 @@ class TripViewController: UIViewController, UITableViewDelegate, UITableViewData
     let CELL_TRIP = "currentCell"
     
     private let firebaseController = FirebaseController()
+    
 
     
     var pastTrips: [Trip] = []

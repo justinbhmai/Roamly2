@@ -7,8 +7,12 @@
 
 import UIKit
 
-class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+protocol AddExpenseDelegate: AnyObject {
+    func didAddExpense(_ expense: Expenses)
+}
 
+
+class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var expenseName: UITextField!
@@ -34,8 +38,9 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 
         // Set up the submit button action
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
-        }
-    // MARK: - UIPickerViewDataSource
+    }
+    
+    // UIPickerViewDataSource
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -45,7 +50,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
         return categories.count
     }
     
-    // MARK: - UIPickerViewDelegate
+    // UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return categories[row]
@@ -55,7 +60,6 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Handle category selection if needed
     }
     
-    // MARK: - Form Submission
     
     @objc func submitButtonTapped() {
         guard let name = expenseName.text, !name.isEmpty,
@@ -78,13 +82,15 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
         clearForm()
     }
     
-    // MARK: - Helper Methods
     
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+              // Perform any action after the alert is dismissed, such as navigating back
+              self.navigationController?.popViewController(animated: true)
+          }))
+          present(alert, animated: true, completion: nil)
+      }
     
     private func clearForm() {
         expenseName.text = ""
