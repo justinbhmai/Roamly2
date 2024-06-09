@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4b-n6-Kse">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -389,7 +389,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Expenses" image="dollarsign.circle" catalog="system" id="VVH-cE-GbB"/>
                     <navigationItem key="navigationItem" title="Expenses" largeTitleDisplayMode="always" id="GPw-uz-IhS">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="891-5S-63S">
+                        <barButtonItem key="rightBarButtonItem" title="Add a new expense" style="plain" id="891-5S-63S">
                             <color key="tintColor" red="1" green="0.72943594150000002" blue="0.17367282810000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="YO6-TR-A1Z" kind="show" id="PRo-aF-LH7"/>

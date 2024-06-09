@@ -11,8 +11,68 @@ import FirebaseAuth
 import UIKit
 
 class FirebaseController: NSObject, DatabaseProtocol {
+    func addExpense(name: String, date: Date, amount: Double, category: Category, completion: @escaping ((any Error)?) -> Void) {
+        let expenseId = UUID().uuidString
+
+          let expense = Expenses(
+              expenseName: name,
+              expenseDate: date,
+              expenseValue: amount,
+              expenseCategory: category
+          )
+
+          do {
+              try database.collection("expenses").document(expenseId).setData(from: expense) { error in
+                  if let error = error {
+                      completion(error)
+                  } else {
+                      completion(nil)
+                  }
+              }
+          } catch let error {
+              completion(error)
+          }
+    }
+    
+    
+    func fetchExpenses(completion: @escaping ([Expenses]?, (any Error)?) -> Void) {
+        database.collection("expenses").getDocuments { snapshot, error in
+                 if let error = error {
+                     completion(nil, error)
+                 } else {
+                     var expenses: [Expenses] = []
+                     for document in snapshot!.documents {
+                         if let expense = try? document.data(as: Expenses.self) {
+                             expenses.append(expense)
+                         }
+                     }
+                     completion(expenses, nil)
+                 }
+             }
+    }
+    
+    func searchExpenses(query: String, completion: @escaping ([Expenses]?, (any Error)?) -> Void) {
+        database.collection("expenses")
+                  .whereField("expenseName", isGreaterThanOrEqualTo: query)
+                  .whereField("expenseName", isLessThanOrEqualTo: query + "\u{f8ff}")
+                  .getDocuments { snapshot, error in
+                      if let error = error {
+                          completion(nil, error)
+                      } else {
+                          var expenses: [Expenses] = []
+                          for document in snapshot!.documents {
+                              if let expense = try? document.data(as: Expenses.self) {
+                                  expenses.append(expense)
+                              }
+                          }
+                          completion(expenses, nil)
+                      }
+              }
+    }
+    
     var listeners = MulticastDelegate<DatabaseListener>()
     var tripList: [Trip] = []
+    var expenseList: [Expenses] = []
     
     override init() {
         // Initialize Firebase authentication and Firestore database
@@ -41,7 +101,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
     
     func addListener(listener: DatabaseListener) {
         listeners.addDelegate(listener)
-        listener.onDatabaseChange(change: .update, trips: tripList)
+        listener.onDatabaseChange(change: .update, trips: tripList, expenses: expenseList)
     }
     
     func removeListener(listener: DatabaseListener) {
@@ -143,7 +203,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
             }
 
             listeners.invoke { listener in
-                listener.onDatabaseChange(change: .update, trips: tripList)
+                listener.onDatabaseChange(change: .update, trips: tripList, expenses: expenseList)
             }
         }
     }

@@ -35,92 +35,78 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Set up the submit button action
         submitButton.addTarget(self, action: #selector(submitButtonTapped), for: .touchUpInside)
         }
-        // Do any additional setup after loading the view.
-    
+    // MARK: - UIPickerViewDataSource
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-          return 1
-      }
-      
-      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-          return categories.count
-      }
-      
-      // MARK: - UIPickerViewDelegate
-      
-      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-          return categories[row]
-      }
-      
-      func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-          // Handle category selection if needed
-      }
-      
-      // MARK: - Form Submission
-      
-      @objc func submitButtonTapped() {
-          guard let name = expenseName.text, !name.isEmpty,
-                let amountText = expenseAmount.text, let amount = Double(amountText),
-                amount > 0 else {
-              showAlert(message: "Please enter a valid name and amount.")
-              return
-          }
-          
-          let selectedCategory = categories[categoryPicker.selectedRow(inComponent: 0)]
-          let selectedDate = datePicker.date
-          
-          // Process the expense data
-          print("Expense Name: \(name)")
-          print("Expense Amount: \(amount)")
-          print("Expense Date: \(selectedDate)")
-          print("Expense Category: \(selectedCategory)")
-          
-          // Optionally clear the form or navigate away
-          clearForm()
-      }
-      
-      // MARK: - Helper Methods
-      
-      private func showAlert(message: String) {
-          let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-          alert.addAction(UIAlertAction(title: "OK", style: .default))
-          present(alert, animated: true)
-      }
-      
-      private func clearForm() {
-          expenseName.text = ""
-          expenseAmount.text = ""
-          categoryPicker.selectRow(0, inComponent: 0, animated: false)
-          datePicker.setDate(Date(), animated: false)
-      }
-      
-      // MARK: - UITextFieldDelegate
-      
-      func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-          // Ensure amount field only accepts valid numbers
-          if textField == expenseAmount {
-              let allowedCharacters = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "."))
-              let characterSet = CharacterSet(charactersIn: string)
-              return allowedCharacters.isSuperset(of: characterSet)
-          }
-          return true
-      }
-      
-      func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-          textField.resignFirstResponder()
-          return true
-      }
-  }
-
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        return 1
     }
-    */
-
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categories.count
+    }
+    
+    // MARK: - UIPickerViewDelegate
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categories[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Handle category selection if needed
+    }
+    
+    // MARK: - Form Submission
+    
+    @objc func submitButtonTapped() {
+        guard let name = expenseName.text, !name.isEmpty,
+              let amountText = expenseAmount.text, let amount = Double(amountText),
+              amount > 0 else {
+            showAlert(message: "Please enter a valid name and amount.")
+            return
+        }
+        
+        let selectedCategory = categories[categoryPicker.selectedRow(inComponent: 0)]
+        let selectedDate = datePicker.date
+        
+        // Process the expense data
+        print("Expense Name: \(name)")
+        print("Expense Amount: \(amount)")
+        print("Expense Date: \(selectedDate)")
+        print("Expense Category: \(selectedCategory)")
+        
+        // Optionally clear the form or navigate away
+        clearForm()
+    }
+    
+    // MARK: - Helper Methods
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
+    
+    private func clearForm() {
+        expenseName.text = ""
+        expenseAmount.text = ""
+        categoryPicker.selectRow(0, inComponent: 0, animated: false)
+        datePicker.setDate(Date(), animated: false)
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Ensure amount field only accepts valid numbers
+        if textField == expenseAmount {
+            let allowedCharacters = CharacterSet.decimalDigits.union(CharacterSet(charactersIn: "."))
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}

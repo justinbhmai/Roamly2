@@ -14,7 +14,7 @@ import FirebaseFirestoreSwift
 // Protocol to be conformed by any class that wants to listen to database changes
 protocol DatabaseListener: AnyObject {
     var listenerType: ListenerType { get set }
-    func onDatabaseChange(change: DatabaseChange, trips: [Trip]?)
+    func onDatabaseChange(change: DatabaseChange, trips: [Trip]?, expenses: [Expenses]?)
 }
 
 // Enum to represent different types of database changes
@@ -32,20 +32,19 @@ enum ListenerType {
 
 // Protocol to be conformed by any class that interacts with the database
 protocol DatabaseProtocol {
-    // Method to add a trip to the database
-    func addTrip(tripName: String, startDate: Date, endDate: Date, completion: @escaping (Error?) -> Void)
-    
-    // Method to fetch all trips from the database
-    func fetchTrips(completion: @escaping ([Trip]?, Error?) -> Void)
-    
-    // Method to search for trips based on a query
-    func searchTrips(query: String, completion: @escaping ([Trip]?, Error?) -> Void)
-    
-    // Method to add a listener to the database
-    func addListener(listener: DatabaseListener)
-    
-    // Method to remove a listener from the database
-    func removeListener(listener: DatabaseListener)
+    // Trip management methods
+       func addTrip(tripName: String, startDate: Date, endDate: Date, completion: @escaping (Error?) -> Void)
+       func fetchTrips(completion: @escaping ([Trip]?, Error?) -> Void)
+       func searchTrips(query: String, completion: @escaping ([Trip]?, Error?) -> Void)
+
+       // Expense management methods
+       func addExpense(name: String, date: Date, amount: Double, category: Category, completion: @escaping (Error?) -> Void)
+       func fetchExpenses(completion: @escaping ([Expenses]?, Error?) -> Void)
+       func searchExpenses(query: String, completion: @escaping ([Expenses]?, Error?) -> Void)
+       
+       // Listener management methods
+       func addListener(listener: DatabaseListener)
+       func removeListener(listener: DatabaseListener)
 }
 
 
