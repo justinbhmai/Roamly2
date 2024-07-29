@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 protocol AddExpenseDelegate: AnyObject {
     func didAddExpense(_ expense: Expenses)
@@ -60,27 +61,52 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Handle category selection if needed
     }
     
-    
-    @objc func submitButtonTapped() {
-        guard let name = expenseName.text, !name.isEmpty,
-              let amountText = expenseAmount.text, let amount = Double(amountText),
-              amount > 0 else {
-            showAlert(message: "Please enter a valid name and amount.")
-            return
-        }
-        
-        let selectedCategory = categories[categoryPicker.selectedRow(inComponent: 0)]
-        let selectedDate = datePicker.date
-        
-        // Process the expense data
-        print("Expense Name: \(name)")
-        print("Expense Amount: \(amount)")
-        print("Expense Date: \(selectedDate)")
-        print("Expense Category: \(selectedCategory)")
-        
-        // Optionally clear the form or navigate away
-        clearForm()
-    }
+    private func saveExpenseToFirestore(name: String, amount: Double, date: Date, category: String) {
+           let db = Firestore.firestore()
+           let expensesCollection = db.collection("expenses")
+           
+           let expenseData: [String: Any] = [
+               "name": name,
+               "amount": amount,
+               "date": Timestamp(date: date),
+               "category": category
+           ]
+           
+           expensesCollection.addDocument(data: expenseData) { error in
+               if let error = error {
+                   print("Error adding document: \(error)")
+                   self.showAlert(message: "Failed to save expense. Please try again.")
+               } else {
+                   print("Document added successfully.")
+                   self.showAlert(message: "Expense added.")
+                   self.clearForm()
+               }
+           }
+       }
+       
+       @objc func submitButtonTapped() {
+           guard let name = expenseName.text, !name.isEmpty,
+                 let amountText = expenseAmount.text, let amount = Double(amountText),
+                 amount > 0 else {
+               showAlert(message: "Please enter a valid name and amount.")
+               return
+           }
+           
+           let selectedCategory = categories[categoryPicker.selectedRow(inComponent: 0)]
+           let selectedDate = datePicker.date
+           
+           let newExpense = Expenses(name: name, amount: amount, date: selectedDate, category: selectedCategory)
+
+           
+           // Process the expense data
+           print("Expense Name: \(name)")
+           print("Expense Amount: \(amount)")
+           print("Expense Date: \(selectedDate)")
+           print("Expense Category: \(selectedCategory)")
+           
+           // Save the expense data to Firestore
+           saveExpenseToFirestore(name: name, amount: amount, date: selectedDate, category: selectedCategory)
+       }
     
     
     private func showAlert(message: String) {

@@ -9,27 +9,55 @@ import UIKit
 import Foundation
 
 // Define the TripData model to match the API response
-struct TripData: Codable {
+struct Trip2Data: Codable {
     let id: String
     let name: String
     let details: String?
+    let type: String?
+    let origin: String?
+    let destination: String?
+    let departureDate: String?
+    let returnDate: String?
+    let price: String?
     // Add other fields as required by your API
 }
 
 // Define the TripResponse model to handle API responses
 struct TripResponse: Codable {
-    let trips: [TripData]
+    let data: [Trip2Data]
     // Ensure this matches the actual structure of your API response
 }
 
+// Function to get OAuth2 access token
+func getAccessToken() async -> String? {
+    let url = URL(string: "https://test.api.amadeus.com/v1/security/oauth2/token")!
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+    
+    let clientId = "AmPD7A9nnmRx3E7XRGuUKkbc6tdW0V0g"
+    let clientSecret = "bcSUiOnV6zPacM09"
+    let body = "grant_type=client_credentials&client_id=\(clientId)&client_secret=\(clientSecret)"
+    request.httpBody = body.data(using: .utf8)
+    
+    do {
+        let (data, _) = try await URLSession.shared.data(for: request)
+        if let jsonResponse = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let accessToken = jsonResponse["access_token"] as? String {
+            return accessToken
+        }
+    } catch {
+        print("Error obtaining access token: \(error)")
+    }
+    return nil
+}
 
 class SocialsViewController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
-   
     let CELL_TRIP = "socialCell"
-    let REQUEST_STRING = "https://test.api.amadeus.com/v1/security/oauth2/token"
-    var newTrips: [TripData] = []
+    let TRIP_SEARCH_ENDPOINT = "https://test.api.amadeus.com/v2/travel/trips" // Update to actual endpoint
+    var newTrips: [Trip2Data] = []
     var indicator = UIActivityIndicatorView()
     var currentPage = 1
     
@@ -71,13 +99,19 @@ class SocialsViewController: UITableViewController, UISearchBarDelegate {
     
     func requestTripsNamed(_ tripName: String, page: Int = 1) async {
         guard let queryString = tripName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let requestURL = URL(string: "\(REQUEST_STRING)?query=\(queryString)&page=\(page)&apiKey=AmPD7A9nnmRx3E7XRGuUKkbc6tdW0V0g") else {
+              let token = await getAccessToken() else {
+            print("Invalid URL or missing access token.")
+            return
+        }
+        
+        guard let requestURL = URL(string: "\(TRIP_SEARCH_ENDPOINT)?query=\(queryString)&page=\(page)") else {
             print("Invalid URL.")
             return
         }
         
         var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = "GET"
+        urlRequest.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
@@ -89,7 +123,7 @@ class SocialsViewController: UITableViewController, UISearchBarDelegate {
             let tripResponse = try decoder.decode(TripResponse.self, from: data)
             
             DispatchQueue.main.async {
-                self.newTrips = tripResponse.trips
+                self.newTrips = tripResponse.data
                 self.tableView.reloadData()
             }
         } catch {
@@ -120,4 +154,3 @@ class SocialsViewController: UITableViewController, UISearchBarDelegate {
         print("Selected trip: \(selectedTrip)")
     }
 }
-

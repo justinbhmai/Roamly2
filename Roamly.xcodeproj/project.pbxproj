@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B4030D072C135A9100F78D4F /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4030D062C135A9100F78D4F /* AddExpenseViewController.swift */; };
 		B42157DC2C12ECB600DBA503 /* Expenses.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42157DB2C12ECB600DBA503 /* Expenses.swift */; };
+		B43DFBCE2C15EA5900D4ABB6 /* Trip2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B43DFBCD2C15EA5900D4ABB6 /* Trip2.swift */; };
 		B46057502BE2A98E00A777FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B460574F2BE2A98E00A777FD /* AppDelegate.swift */; };
 		B46057522BE2A98E00A777FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057512BE2A98E00A777FD /* SceneDelegate.swift */; };
 		B46057542BE2A98E00A777FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057532BE2A98E00A777FD /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		B4030D062C135A9100F78D4F /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
 		B42157DB2C12ECB600DBA503 /* Expenses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expenses.swift; sourceTree = "<group>"; };
+		B43DFBCD2C15EA5900D4ABB6 /* Trip2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip2.swift; sourceTree = "<group>"; };
 		B460574C2BE2A98E00A777FD /* Roamly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roamly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B460574F2BE2A98E00A777FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B46057512BE2A98E00A777FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				B4EEDE492C12CDF20015C6FD /* DatabaseProtocol.swift */,
 				B42157DB2C12ECB600DBA503 /* Expenses.swift */,
 				B4030D062C135A9100F78D4F /* AddExpenseViewController.swift */,
+				B43DFBCD2C15EA5900D4ABB6 /* Trip2.swift */,
 			);
 			path = Roamly;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				B46057642BE2B81400A777FD /* TripViewController.swift in Sources */,
 				B46057502BE2A98E00A777FD /* AppDelegate.swift in Sources */,
 				B4EEDE4A2C12CDF20015C6FD /* DatabaseProtocol.swift in Sources */,
+				B43DFBCE2C15EA5900D4ABB6 /* Trip2.swift in Sources */,
 				B4F5AC872BEC6E82004ADB32 /* Trip.swift in Sources */,
 				B460576A2BE2B83900A777FD /* SocialsViewController.swift in Sources */,
 				B4F5AC8E2BEE4433004ADB32 /* MulticastDelegate.swift in Sources */,

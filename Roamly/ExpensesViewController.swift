@@ -39,6 +39,7 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
         print("Add Expense button tapped")
         let vc = AddExpenseViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     // Fetch expenses from Firestore
