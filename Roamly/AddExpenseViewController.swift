@@ -95,8 +95,6 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
            let selectedCategory = categories[categoryPicker.selectedRow(inComponent: 0)]
            let selectedDate = datePicker.date
            
-           let newExpense = Expenses(name: name, amount: amount, date: selectedDate, category: selectedCategory)
-
            
            // Process the expense data
            print("Expense Name: \(name)")

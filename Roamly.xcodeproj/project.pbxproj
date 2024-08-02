@@ -20,6 +20,7 @@
 		B46057662BE2B82400A777FD /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057652BE2B82400A777FD /* DocumentViewController.swift */; };
 		B46057682BE2B82E00A777FD /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057672BE2B82E00A777FD /* ExpensesViewController.swift */; };
 		B460576A2BE2B83900A777FD /* SocialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46057692BE2B83900A777FD /* SocialsViewController.swift */; };
+		B4761B1C2C5D57BC000BDD4D /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4761B1B2C5D57BC000BDD4D /* AddTripViewController.swift */; };
 		B4E8DDBA2BE33A8200930861 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B4E8DDB92BE33A8200930861 /* FirebaseAuth */; };
 		B4E8DDBC2BE33A8200930861 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B4E8DDBB2BE33A8200930861 /* FirebaseFirestore */; };
 		B4E8DDBE2BE33A8200930861 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B4E8DDBD2BE33A8200930861 /* FirebaseFirestoreSwift */; };
@@ -46,6 +47,7 @@
 		B46057652BE2B82400A777FD /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		B46057672BE2B82E00A777FD /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
 		B46057692BE2B83900A777FD /* SocialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsViewController.swift; sourceTree = "<group>"; };
+		B4761B1B2C5D57BC000BDD4D /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = SOURCE_ROOT; };
 		B4EEDE492C12CDF20015C6FD /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		B4F5AC862BEC6E82004ADB32 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = ../../Trip.swift; sourceTree = "<group>"; };
 		B4F5AC882BEC7852004ADB32 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				B42157DB2C12ECB600DBA503 /* Expenses.swift */,
 				B4030D062C135A9100F78D4F /* AddExpenseViewController.swift */,
 				B43DFBCD2C15EA5900D4ABB6 /* Trip2.swift */,
+				B4761B1B2C5D57BC000BDD4D /* AddTripViewController.swift */,
 			);
 			path = Roamly;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				B46057662BE2B82400A777FD /* DocumentViewController.swift in Sources */,
 				B46057542BE2A98E00A777FD /* ViewController.swift in Sources */,
 				B46057642BE2B81400A777FD /* TripViewController.swift in Sources */,
+				B4761B1C2C5D57BC000BDD4D /* AddTripViewController.swift in Sources */,
 				B46057502BE2A98E00A777FD /* AppDelegate.swift in Sources */,
 				B4EEDE4A2C12CDF20015C6FD /* DatabaseProtocol.swift in Sources */,
 				B43DFBCE2C15EA5900D4ABB6 /* Trip2.swift in Sources */,
