@@ -124,7 +124,7 @@ class FirebaseController: NSObject, DatabaseProtocol {
 
     
     func deleteTrip(trip: Trip, completion: @escaping (Error?) -> Void) {
-        guard let tripID = trip.id else {
+        guard let tripID = trip.tripID else {
             completion(NSError(domain: "Trip ID is missing", code: 0, userInfo: nil))
             return
         }

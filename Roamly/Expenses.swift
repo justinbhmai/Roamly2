@@ -17,10 +17,10 @@ class Expenses: Codable {
     
     enum CodingKeys: String, CodingKey {
         case expenseID = "id"
-        case expenseName
-        case expenseDate
-        case expenseValue
-        case expenseCategory
+        case expenseName = "name"
+        case expenseDate = "date"
+        case expenseValue = "amount"
+        case expenseCategory = "category"
     }
     
     // MARK: - Decodable
@@ -45,10 +45,14 @@ class Expenses: Codable {
 }
 
 // Example Category class/enum that conforms to Codable
-enum Category: String, Codable {
-    case food
-    case transport
-    case shopping
-    case entertainment
-    case others
+enum Category: String, Codable, CaseIterable {
+    case food = "Food"
+    case transport = "Transport"
+    case shopping = "Shopping"
+    case entertainment = "Entertainment"
+    case others = "Other"
+    
+    static var categories: [String] {
+        return Category.allCases.map { $0.rawValue }
+    }
 }
