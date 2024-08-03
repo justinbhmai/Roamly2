@@ -47,8 +47,12 @@ class TripViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @objc func addTripTapped() {
         print("Add Trip button tapped")
-        let vc = AddTripViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let addTripVC = storyboard.instantiateViewController(withIdentifier: "AddTripViewController") as? AddTripViewController {
+            self.navigationController?.pushViewController(addTripVC, animated: true)
+        } else {
+            print("Failed to instantiate AddTripViewController")
+        }
     }
     
     /// Load trips from Firestore.
