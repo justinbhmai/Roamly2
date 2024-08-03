@@ -31,7 +31,10 @@ class ExpensesViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Set up Firestore
         db = Firestore.firestore()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         fetchExpenses()
     }
     

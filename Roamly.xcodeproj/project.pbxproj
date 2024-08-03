@@ -25,10 +25,10 @@
 		B4E8DDBC2BE33A8200930861 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B4E8DDBB2BE33A8200930861 /* FirebaseFirestore */; };
 		B4E8DDBE2BE33A8200930861 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B4E8DDBD2BE33A8200930861 /* FirebaseFirestoreSwift */; };
 		B4EEDE4A2C12CDF20015C6FD /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EEDE492C12CDF20015C6FD /* DatabaseProtocol.swift */; };
-		B4F5AC872BEC6E82004ADB32 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AC862BEC6E82004ADB32 /* Trip.swift */; };
 		B4F5AC892BEC7852004ADB32 /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AC882BEC7852004ADB32 /* FirebaseController.swift */; };
 		B4F5AC8B2BEE152F004ADB32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4F5AC8A2BEE152F004ADB32 /* GoogleService-Info.plist */; };
 		B4F5AC8E2BEE4433004ADB32 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F5AC8D2BEE4433004ADB32 /* MulticastDelegate.swift */; };
+		F16A4AA52C5E01E4007799A0 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16A4AA42C5E01E4007799A0 /* Trip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,10 +49,10 @@
 		B46057692BE2B83900A777FD /* SocialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialsViewController.swift; sourceTree = "<group>"; };
 		B4761B1B2C5D57BC000BDD4D /* AddTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = SOURCE_ROOT; };
 		B4EEDE492C12CDF20015C6FD /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
-		B4F5AC862BEC6E82004ADB32 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Trip.swift; path = ../../Trip.swift; sourceTree = "<group>"; };
 		B4F5AC882BEC7852004ADB32 /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		B4F5AC8A2BEE152F004ADB32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		B4F5AC8D2BEE4433004ADB32 /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = SOURCE_ROOT; };
+		F16A4AA42C5E01E4007799A0 /* Trip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +88,7 @@
 		B460574E2BE2A98E00A777FD /* Roamly */ = {
 			isa = PBXGroup;
 			children = (
+				F16A4AA42C5E01E4007799A0 /* Trip.swift */,
 				B460574F2BE2A98E00A777FD /* AppDelegate.swift */,
 				B46057512BE2A98E00A777FD /* SceneDelegate.swift */,
 				B46057532BE2A98E00A777FD /* ViewController.swift */,
@@ -101,7 +102,6 @@
 				B46057672BE2B82E00A777FD /* ExpensesViewController.swift */,
 				B46057692BE2B83900A777FD /* SocialsViewController.swift */,
 				B46057652BE2B82400A777FD /* DocumentViewController.swift */,
-				B4F5AC862BEC6E82004ADB32 /* Trip.swift */,
 				B4F5AC882BEC7852004ADB32 /* FirebaseController.swift */,
 				B4EEDE492C12CDF20015C6FD /* DatabaseProtocol.swift */,
 				B42157DB2C12ECB600DBA503 /* Expenses.swift */,
@@ -192,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16A4AA52C5E01E4007799A0 /* Trip.swift in Sources */,
 				B42157DC2C12ECB600DBA503 /* Expenses.swift in Sources */,
 				B4F5AC892BEC7852004ADB32 /* FirebaseController.swift in Sources */,
 				B46057662BE2B82400A777FD /* DocumentViewController.swift in Sources */,
@@ -201,7 +202,6 @@
 				B46057502BE2A98E00A777FD /* AppDelegate.swift in Sources */,
 				B4EEDE4A2C12CDF20015C6FD /* DatabaseProtocol.swift in Sources */,
 				B43DFBCE2C15EA5900D4ABB6 /* Trip2.swift in Sources */,
-				B4F5AC872BEC6E82004ADB32 /* Trip.swift in Sources */,
 				B460576A2BE2B83900A777FD /* SocialsViewController.swift in Sources */,
 				B4F5AC8E2BEE4433004ADB32 /* MulticastDelegate.swift in Sources */,
 				B46057522BE2A98E00A777FD /* SceneDelegate.swift in Sources */,

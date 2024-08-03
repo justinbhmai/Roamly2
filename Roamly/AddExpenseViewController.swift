@@ -20,7 +20,7 @@ class AddExpenseViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var expenseAmount: UITextField!
     
-    let categories = ["Food", "Transport", "Entertainment", "Shopping", "Other"]
+    let categories = Category.categories
     
     
     override func viewDidLoad() {
